@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/global.css";
+import "../styles/globals.css"
 import CookiesBanner from "../components/common/CookiesBanner";
 import { DefaultSeo } from "next-seo";
 import SEO from "../next-seo.config";

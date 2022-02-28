@@ -1,9 +1,9 @@
 import React from "react";
-import Layout from "../../components/layouts/Layout";
 import { groq } from "next-sanity";
-import { getClient } from "../../lib/sanity/sanity.server";
+import { getClient } from "../../lib/sanity/sanity-server";
 import PostList from "../../components/elements/PostList";
 import { motion } from "framer-motion";
+import Layout from "../../components/Layouts/Layout";
 
 /**
  * Blog index page

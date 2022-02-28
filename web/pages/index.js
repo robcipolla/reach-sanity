@@ -1,7 +1,7 @@
 import React from "react";
-import Layout from "../components/layouts/Layout";
 import SEO from "../components/common/SEO";
 import { motion } from "framer-motion";
+import Layout from "../components/Layouts/Layout";
 
 /**
  * Home: The landing page of the wesbite.

@@ -1,6 +1,4 @@
-import {
-    createImageUrlBuilder,
-} from 'next-sanity'
-import { config } from './sanity-config'
+import createImageUrlBuilder from '@sanity/image-url'
+import { sanityConfig } from './sanity-config'
 
-export const urlFor = source => createImageUrlBuilder(config).image(source);
+export const urlFor = source => createImageUrlBuilder(sanityConfig).image(source);

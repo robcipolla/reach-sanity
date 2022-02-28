@@ -1,6 +1,6 @@
 import React from "react";
 import SEO from "../components/common/SEO";
-import Layout from "../components/layouts/Layout";
+import Layout from "../components/Layouts/Layout";
 
 /**
  * Privacy and Cookies page

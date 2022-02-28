@@ -1,12 +1,12 @@
 import { groq } from "next-sanity";
 import React from "react";
-import Layout from "../../components/layouts/Layout";
-import { BlockContent } from "../../components/block-content/BlockContent";
-import { getClient } from "../../lib/sanity/sanity.server";
+import { getClient } from "../../lib/sanity/sanity-server";
 import SEO from "../../components/common/SEO";
 import Image from "next/image";
 import { urlFor } from "../../lib/sanity/sanity-img-builder";
 import { motion } from "framer-motion";
+import Layout from "../../components/Layouts/Layout";
+import BlockContent from "../../components/block-content/BlockContent";
 
 /**
  * Blog post page
