@@ -1,6 +1,20 @@
 {
+  "name": "reach-sanity",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/CipollaCreative/reach-sanity.git",
+  "author": "Rob Cipolla <rob@reachmarketing.co.uk>",
+  "license": "MIT",
+  "scripts": {
+    "template:build": "sanity-template build --template-values=.sanity-template/template-values-development.json",
+    "template:install": "yarn template:install-web && yarn template:install-studio",
+    "template:install-web": "cd build/web && yarn",
+    "template:install-studio": "cd build/studio && sanity install",
+    "dev:web": "cd build/web && yarn dev",
+    "dev:studio": "cd build/studio && sanity start",
+    "watch": "sanity-template watch --template-values=.sanity-template/template-values-development.json"
+  },
   "dependencies": {
-    "js-cookie": "^3.0.1",
-    "react-gtm-module": "^2.0.11"
+    "sanity-template": "^2.4.3"
   }
 }
