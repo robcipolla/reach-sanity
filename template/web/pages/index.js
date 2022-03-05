@@ -16,7 +16,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
           > 
-            Home Page ya'll
+            Home Page ya&apos;ll
           </motion.h1>
         </main>
       </div>
