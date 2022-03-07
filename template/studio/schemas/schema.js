@@ -15,6 +15,7 @@ import siteBranding from "./settings/siteBranding";
 import homePage from "./pages/homePage";
 import aboutPage from "./pages/aboutPage";
 import seo from "./parts/seo";
+import page from "./pages/page";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -36,8 +37,7 @@ export default createSchema({
     contactDetails,
     siteBranding,
     // Single Pages
-    homePage,
-    aboutPage,
+    page,
     // Parts
     seo,
   ]),

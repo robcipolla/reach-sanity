@@ -7,10 +7,8 @@ import {
   RiPaintBrushLine,
   RiUser3Line,
   RiArticleLine,
-  RiHome3Line,
   RiHome3Fill,
-  RiQuestionAnswerFill,
-  RiQuestionMark,
+  RiPagesFill
 } from "react-icons/ri";
 import {
   BsSignpostSplit,
@@ -67,28 +65,13 @@ export default () =>
             ])
         ),
       S.divider(),
-      // Single Pages
-      // Home
+      // Pages
       S.listItem()
-        .title("Home Page")
-        .icon(RiHome3Fill)
+        .title("Pages")
+        .icon(RiPagesFill)
         .child(
-          S.document()
-            .title("Home Page")
-            .documentId("home")
-            .schemaType("homePage")
-            .views([S.view.form()])
-        ),
-      // About
-      S.listItem()
-        .title("About Page")
-        .icon(RiQuestionMark)
-        .child(
-          S.document()
-            .title("About Page")
-            .documentId("about")
-            .schemaType("aboutPage")
-            .views([S.view.form()])
+          S.documentTypeList('page')
+            
         ),
       S.divider(),
       // Blog
