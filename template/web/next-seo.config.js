@@ -1,5 +1,5 @@
 export default {
-    titleTemplate: "DEFAULT SEO | %s",
+    // titleTemplate: "DEFAULT SEO | %s",
     title: "DEFAULT TITLE",
     openGraph: {
         type: "website",

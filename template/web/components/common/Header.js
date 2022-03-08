@@ -5,6 +5,7 @@ import MenuIcon from "../icons/MenuIcon";
 import { motion } from "framer-motion";
 import CloseIcon from "../icons/CloseIcon";
 import { useIsSm } from "../../lib/hooks/useMediaQuery";
+import Container from "./Container";
 
 /**
  * Header component
@@ -41,31 +42,35 @@ export default function Header() {
 
   return (
     <header className="bg-white shadow-md mb-8">
-      <div className="container py-8 px-2 flex items-center justify-between">
-        <Link href="/">
-          <a className="hover:opacity-50 transition-opacity duration-300">
-            <Image src="/images/reach-logo.png" width={147} height={41} />
-          </a>
-        </Link>
-        <button onClick={() => setNavOpen(!navOpen)} className="z-10 sm:hidden">
-          {navOpen ? <CloseIcon /> : <MenuIcon />}
-        </button>
-        <motion.nav
-          {...attributes}
-          className={`fixed top-0 left-0 right-0 h-screen w-screen bg-lynx pointer-events-none sm:visible sm:relative sm:w-auto sm:h-auto sm:bg-transparent ${
-            navOpen ? "pointer-events-auto" : "pointer-events-none"
-          } sm:pointer-events-auto`}
-        >
-          <ul className="list-none pb-4 pt-24 text-center sm:p-0 sm:flex sm:space-x-4">
-            <li className="text-2xl block sm:text-base">
-              <Link href="/">Home</Link>
-            </li>
-            <li className="text-2xl block sm:text-base">
-              <Link href="/blog">Blog</Link>
-            </li>
-          </ul>
-        </motion.nav>
-      </div>
+      <Container>
+        <div className="py-8 flex items-center justify-between">
+          <Link href="/">
+            <a className="hover:opacity-50 transition-opacity duration-300">
+              <Image src="/images/logoipsum.svg" width={147} height={41} />
+            </a>
+          </Link>
+          <button onClick={() => setNavOpen(!navOpen)} className="z-10 sm:hidden">
+            {navOpen ? <CloseIcon /> : <MenuIcon />}
+          </button>
+          <motion.nav
+            {...attributes}
+            className={`fixed top-0 left-0 right-0 h-screen w-screen bg-lynx pointer-events-none sm:visible sm:relative sm:w-auto sm:h-auto sm:bg-transparent ${navOpen ? "pointer-events-auto" : "pointer-events-none"
+              } sm:pointer-events-auto`}
+          >
+            <ul className="list-none pb-4 pt-24 text-center sm:p-0 sm:flex sm:space-x-4">
+              <li className="text-2xl block sm:text-base">
+                <Link href="/">Home</Link>
+              </li>
+              <li className="text-2xl block sm:text-base">
+                <Link href="/about">About</Link>
+              </li>
+              <li className="text-2xl block sm:text-base">
+                <Link href="/blog">Blog</Link>
+              </li>
+            </ul>
+          </motion.nav>
+        </div>
+      </Container>
     </header>
   );
 }

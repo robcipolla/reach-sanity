@@ -49,6 +49,12 @@ export default {
                 name: "href",
                 type: "url",
               },
+              {
+                title: "External",
+                name: "external",
+                initialValue: false,
+                type: "boolean"
+              }
             ],
           },
         ],
