@@ -46,7 +46,7 @@ export default function Header() {
         <div className="py-8 flex items-center justify-between">
           <Link href="/">
             <a className="hover:opacity-50 transition-opacity duration-300">
-              <Image src="/images/logoipsum.svg" width={147} height={41} />
+              <Image src="/images/logoipsum.svg" width="147" height="41" />
             </a>
           </Link>
           <button onClick={() => setNavOpen(!navOpen)} className="z-10 sm:hidden">
