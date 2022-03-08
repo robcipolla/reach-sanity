@@ -11,10 +11,11 @@ export default function BlogImage({ asset }) {
   return (
     <figure>
       <Image
-        src={urlFor(asset).width(300).height(300).url()}
-        width={300}
-        height={300}
+        src={urlFor(asset).width(2500).height(600).auto('format').url()}
+        width={2500}
+        height={600}
         objectFit="cover"
+        layout="responsive"
       />
     </figure>
   );

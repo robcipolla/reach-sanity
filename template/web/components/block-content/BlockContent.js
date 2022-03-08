@@ -7,9 +7,25 @@ export default function BlockContent({ blocks }) {
     <PortableText
       value={blocks}
       components={{
-        block: {
-          image: (props) => <BlogImage asset={props.node.asset} />,
-        }
+        types: {
+          image: (props) => <BlogImage asset={props.value.asset} />,
+        },
+        marks: {
+          link: ({children, value}) => {
+            if(value.external) {
+              return (
+                <a target="_blank" href={value.href} rel="noreferrer noopener">
+                  {children}
+                </a>
+              )
+            }
+            return (
+              <a href={value.href}>
+                {children}
+              </a>
+            )
+          },
+        },
       }}
     />
   );
