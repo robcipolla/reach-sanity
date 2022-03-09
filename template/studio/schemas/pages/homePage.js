@@ -10,6 +10,11 @@ export default {
       type: "string",
     },
     {
+      title: "Slider",
+      name: "slider",
+      type: "imageSlider"
+    },
+    {
       title: "Page Content",
       name: "pageContent",
       type: "blockContent",

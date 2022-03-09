@@ -6,12 +6,13 @@ import { groq } from "next-sanity";
 import { getClient } from "../lib/sanity/sanity-server";
 import BlockContent from "../components/block-content/BlockContent";
 import Container from "../components/common/Container";
+import MainCarousel from "../components/elements/MainCoursel";
 
 /**
  * Home: The landing page of the wesbite.
  */
 export default function Home({ data }) {
-  const {seo, pageTitle, pageContent} = data;
+  const { seo, pageTitle, pageContent, slider : sliderImages } = data;
   return (
     <Layout>
       <SEO title={seo.metaTitle} description={seo.metaDescription} />
@@ -23,7 +24,8 @@ export default function Home({ data }) {
           >
             {pageTitle}
           </motion.h1>
-          <BlockContent blocks={pageContent}/>
+          <MainCarousel sliderImages={sliderImages} />
+          <BlockContent blocks={pageContent} />
         </main>
       </Container>
     </Layout>

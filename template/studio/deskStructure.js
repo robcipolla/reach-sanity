@@ -1,3 +1,5 @@
+
+
 import S from "@sanity/desk-tool/structure-builder";
 
 // Icons
@@ -7,8 +9,10 @@ import {
   RiPaintBrushLine,
   RiUser3Line,
   RiArticleLine,
+  RiHome3Line,
   RiHome3Fill,
-  RiPagesFill
+  RiQuestionAnswerFill,
+  RiQuestionMark,
 } from "react-icons/ri";
 import {
   BsSignpostSplit,
@@ -65,13 +69,28 @@ export default () =>
             ])
         ),
       S.divider(),
-      // Pages
+      // Single Pages
+      // Home
       S.listItem()
-        .title("Pages")
-        .icon(RiPagesFill)
+        .title("Home Page")
+        .icon(RiHome3Fill)
         .child(
-          S.documentTypeList('page')
-            
+          S.document()
+            .title("Home Page")
+            .documentId("home")
+            .schemaType("homePage")
+            .views([S.view.form()])
+        ),
+      // About
+      S.listItem()
+        .title("About Page")
+        .icon(RiQuestionMark)
+        .child(
+          S.document()
+            .title("About Page")
+            .documentId("about")
+            .schemaType("aboutPage")
+            .views([S.view.form()])
         ),
       S.divider(),
       // Blog
