@@ -41,7 +41,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white shadow-md mb-8">
+    <header className="bg-white shadow-md">
       <Container>
         <div className="py-8 flex items-center justify-between">
           <Link href="/">

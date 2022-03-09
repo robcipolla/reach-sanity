@@ -17,8 +17,8 @@ export default function MainCarousel({sliderImages}) {
     return (
         <Slider className="mb-8" {...settings}>
             {sliderImages.map((slide, i) => (
-                <div key={i} className='w-full'>
-                    <Image src={urlFor(slide.asset).width(1200).height(600).auto('format').url()} width='1200' height='600' layout="responsive" />
+                <div key={i} className='w-full h-[450px] relative'>
+                    <Image  src={urlFor(slide.asset).width(1520).height(450).auto('format').url()} layout="fill" objectFit="cover" />
                 </div>
             ))}
         </Slider>

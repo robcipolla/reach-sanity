@@ -7,6 +7,7 @@ import { urlFor } from "../../lib/sanity/sanity-img-builder";
 import { motion } from "framer-motion";
 import Layout from "../../components/Layouts/Layout";
 import BlockContent from "../../components/block-content/BlockContent";
+import Container from "../../components/common/Container";
 
 /**
  * Blog post page
@@ -20,24 +21,28 @@ export default function Post({ post }) {
                 title={post.seo?.metaTitle}
                 description={post.seo?.metaDescription}
             />
-            <div className="container">
-                <motion.h1
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                >
-                    {post.title}
-                </motion.h1>
-                {post?.mainImage && (
+            {post?.mainImage && (
+                <figure className="w-full h-[450px] mb-8 relative">
                     <Image
-                        src={urlFor(post.mainImage).width(1280).url()}
-                        width={1280}
-                        height={300}
+                        src={urlFor(post.mainImage).width(1600).height(450).auto('format').url()}
                         objectFit="cover"
-                        layout="responsive"
+                        layout="fill"
                     />
-                )}
-                {post?.body && <BlockContent blocks={post?.body} />}
-            </div>
+                </figure>
+            )}
+            <Container>
+                <main>
+                    <article className="max-w-[70ch] mx-auto">
+                        <motion.h1
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                        >
+                            {post.title}
+                        </motion.h1>
+                        {post?.body && <BlockContent blocks={post?.body} />}
+                    </article>
+                </main>
+            </Container>
         </Layout>
     );
 }

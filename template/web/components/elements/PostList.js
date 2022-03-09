@@ -3,6 +3,7 @@ import Link from "next/link";
 import usePagination from "../../lib/hooks/usePagination";
 import Pagination from "./Pagination";
 import { AnimatePresence, motion } from "framer-motion";
+import Card from "./Card";
 
 /**
  * Post list container
@@ -10,24 +11,14 @@ import { AnimatePresence, motion } from "framer-motion";
  * @return {JSX.Element} JSX Code for the post list
  */
 export default function PostList({ posts }) {
-  const { pageNumbers, currentPosts, paginate, currentPage } =
-    usePagination(posts);
+  const { pageNumbers, currentPosts, paginate, currentPage } = usePagination(posts);
   return (
     <>
-      <ul className="min-h-[72px]">
+      <div className="my-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 list-none">
         {currentPosts.map((post) => (
-          <AnimatePresence key={post.id} exitBeforeEnter>
-            <motion.li
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Link href={`/blog/${post.slug.current}`}>{post.title}</Link>
-            </motion.li>
-          </AnimatePresence>
+          <Card title={post.title} link={post.slug.current} image={post.mainImage.asset} />
         ))}
-      </ul>
+      </div>
 
       <Pagination
         pageNumbers={pageNumbers}

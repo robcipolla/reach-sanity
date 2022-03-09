@@ -12,20 +12,22 @@ import MainCarousel from "../components/elements/MainCoursel";
  * Home: The landing page of the wesbite.
  */
 export default function Home({ data }) {
-  const { seo, pageTitle, pageContent, slider : sliderImages } = data;
+  const { seo, pageTitle, pageContent, slider: sliderImages } = data;
   return (
     <Layout>
       <SEO title={seo.metaTitle} description={seo.metaDescription} />
+      <MainCarousel sliderImages={sliderImages} />
       <Container>
         <main>
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            {pageTitle}
-          </motion.h1>
-          <MainCarousel sliderImages={sliderImages} />
-          <BlockContent blocks={pageContent} />
+          <div className="max-w-[70ch] mx-auto">
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              {pageTitle}
+            </motion.h1>
+            <BlockContent blocks={pageContent} />
+          </div>
         </main>
       </Container>
     </Layout>

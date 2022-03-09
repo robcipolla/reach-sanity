@@ -95,68 +95,9 @@ export default () =>
       S.divider(),
       // Blog
       S.listItem()
-        .title("Blog")
+        .title("Posts")
         .icon(BsNewspaper)
         .child(
-          S.list()
-            .title("Blog")
-            .items([
-              // All posts
-              S.documentTypeListItem("post")
-                .title("All Posts")
-                .icon(RiArticleLine),
-              // Only published posts
-              S.listItem()
-                .title("Published Posts")
-                .schemaType("post")
-                .icon(BsFolder)
-                .child(
-                  S.documentList("post")
-                    .title("Published Posts")
-                    .menuItems(S.documentTypeList("post").getMenuItems())
-                    .filter(
-                      '_type == "post" && publishedAt < now() && !(_id in path("drafts.**"))'
-                    )
-                    .child((documentId) =>
-                      S.document()
-                        .documentId(documentId)
-                        .schemaType("post")
-                        .views([S.view.form()])
-                    )
-                ),
-              // Posts by Category
-              S.listItem()
-                .title("Posts by Category")
-                .icon(BsFolder)
-                .child(
-                  S.documentTypeList("category")
-                    .title("Posts By Category")
-                    .child((catId) =>
-                      S.documentList()
-                        .schemaType("post")
-                        .title("Posts")
-                        .filter(
-                          '_type == "post" && $catId in categories[]._ref'
-                        )
-                        .params({ catId })
-                    )
-                ),
-            ])
-        ),
-      // Categories
-      S.listItem()
-        .title("Categories")
-        .icon(BsFolder)
-        .child(
-          S.documentList("category")
-            .title("Categories")
-            .filter('_type == "category"')
-        ),
-      // Authors
-      S.listItem()
-        .title("Authors")
-        .icon(RiUser3Line)
-        .child(
-          S.documentList("author").title("Authors").filter('_type == "author"')
+          S.documentTypeList('post')
         ),
     ]);

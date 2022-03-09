@@ -4,6 +4,7 @@ import { getClient } from "../../lib/sanity/sanity-server";
 import PostList from "../../components/elements/PostList";
 import { motion } from "framer-motion";
 import Layout from "../../components/Layouts/Layout";
+import Container from "../../components/common/Container";
 
 /**
  * Blog index page
@@ -15,15 +16,18 @@ export default function BlogIndex({ data }) {
 
     return (
         <Layout>
-            <div className="container">
-                <motion.h1
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                >
-                    Blog
-                </motion.h1>
-                <PostList posts={posts} />
-            </div>
+            <Container>
+                <main>
+                    <motion.h1
+                        className="mt-4"
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                    >
+                        News/blogs
+                    </motion.h1>
+                    <PostList posts={posts} />
+                </main>
+            </Container>
         </Layout>
     );
 }
@@ -31,7 +35,8 @@ export default function BlogIndex({ data }) {
 const postsQuery = groq`*[_type == 'post' && !(_id in path('drafts.**'))] | order(_createdAt desc){
   'id':_id,
   title,
-  slug
+  slug,
+  mainImage
 }`;
 
 /**
