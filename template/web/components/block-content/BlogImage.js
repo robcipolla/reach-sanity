@@ -9,10 +9,10 @@ import { urlFor } from "../../lib/sanity/sanity-img-builder";
  */
 export default function BlogImage({ asset }) {
   return (
-    <figure>
+    <figure className="w-full">
       <Image
-        src={urlFor(asset).width(2500).height(600).auto('format').url()}
-        width={2500}
+        src={urlFor(asset).width(1200).height(600).auto('format').url()}
+        width={1200}
         height={600}
         objectFit="cover"
         layout="responsive"
