@@ -11,10 +11,11 @@ export default function MainCarousel({sliderImages}) {
         infinite: true,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        arrows: false,
     };
     return (
-        <Slider {...settings}>
+        <Slider className="mb-8" {...settings}>
             {sliderImages.map((slide, i) => (
                 <div key={i} className='w-full'>
                     <Image src={urlFor(slide.asset).width(1200).height(600).auto('format').url()} width='1200' height='600' layout="responsive" />
