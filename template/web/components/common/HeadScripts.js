@@ -1,5 +1,4 @@
 import React from "react";
-import Script from "next/script";
 /**
  * Componenet for additional <head> scripts for the website, e.g. Google Tag Manager
  *
@@ -17,8 +16,7 @@ export default function HeadScripts() {
      *   'personalization_storage': 'denied',
      *   'security_storage': 'denied',
      */
-    <Script
-      strategy="afterInteractive"
+    <script
       dangerouslySetInnerHTML={{
         __html: `
                 // Define dataLayer and the gtag function.
